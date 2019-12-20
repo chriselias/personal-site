@@ -11,6 +11,13 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
+import Footer from './footer';
+import styled from "styled-components";
+import Img from "gatsby-image"
+
+const SiteWrapper = styled.div`
+
+  `;
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -20,28 +27,28 @@ const Layout = ({ children }) => {
           title
         }
       }
+      file(relativePath: {
+    regex: "/demo2/"
+  }) {
+    childImageSharp {
+      fluid(maxWidth: 1000) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
     }
   `)
 
   return (
-    <>
+    <SiteWrapper>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
+    { /* <Img fluid={data.file.childImageSharp.fluid} /> */ }
+
+      <div>
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+       <Footer />
       </div>
-    </>
+    </SiteWrapper>
   )
 }
 
