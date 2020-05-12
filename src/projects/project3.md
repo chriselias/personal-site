@@ -2,8 +2,8 @@
 slug: '/kwix-web-app'
 date: '2019-12-14'
 title: 'Kwix'
-color: '#f3682b'
-cover: 'demo3.png'
+color: '#ff9984'
+secondaryColor: '#FF0'
 images:
     - "../images/demo3.png"
 ---

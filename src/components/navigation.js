@@ -13,7 +13,7 @@ const NavWrapper = styled.nav`
 
         li {
             list-style: none;
-            margin-left: 1rem;
+            margin-left: 3rem;
             a {
                 color: var(--black);
                 &:hover {
@@ -31,6 +31,9 @@ const NavWrapper = styled.nav`
 const Navigation = () => (
     <NavWrapper>
       <ul>
+        <li>
+            <Link activeClassName="active" to="/">Home</Link> 
+        </li>
         <li>
             <Link activeClassName="active" to="/about">About</Link>
         </li>

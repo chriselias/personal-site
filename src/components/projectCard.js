@@ -48,7 +48,7 @@ const Card = styled.div.attrs(props => ({
 `
 
 const ProjectCard = (props) => {
-    const { color, title, cover, images } = props.project.node.frontmatter;
+    const { color, title, images } = props.project.node.frontmatter;
 
     return (
         <Card bg={color}>

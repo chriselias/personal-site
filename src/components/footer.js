@@ -5,7 +5,6 @@ import SubHeading from './subHeading';
 
 const FooterWrapper = styled.footer`
     padding: 6rem 0;
-    color: #FFF;
     display: grid;
     grid-template-columns: 1fr 1fr;
 `
@@ -13,7 +12,7 @@ const FooterWrapper = styled.footer`
 class Footer extends Component {
     render() {
         return (
-            <ContentWrapper bg="#0F223E">
+            <ContentWrapper bg="#F4F4F4">
                 <FooterWrapper>
                     <div>
                         <SubHeading>Let's Work Together</SubHeading>

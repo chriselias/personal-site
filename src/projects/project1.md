@@ -2,10 +2,15 @@
 slug: '/draftboard-app'
 date: '2019-12-13'
 title: 'The Best Draftboard App'
+desc: 'This project was really cool...'
 color: '#15bed4'
-cover: 'demo1.png'
+secondaryColor: '#FF0'
+roles:
+    - "front-end developer"
+    - "UI Designer"
 images:
     - "../images/demo1.png"
+
 ---
 
 # hello

@@ -9,11 +9,17 @@ const ProjectGrid = styled.section`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 30px;
+    margin-bottom: 4rem;
+`
+
+const Content = styled.section`
+  margin: 4rem 0;
+  width: 50%;
 `
 
 const PROJECT_ARCHIVE_QUERY = graphql`
         query RecentProjectQuery {
-      allMarkdownRemark(sort: {
+      allMarkdownRemark(limit: 3, sort: {
     order:DESC,
     fields: [frontmatter___date]
   })  {
@@ -23,7 +29,6 @@ const PROJECT_ARCHIVE_QUERY = graphql`
               slug,
               title,
               color,
-              cover,
               images {
                 publicURL
               }
@@ -37,20 +42,18 @@ const ProjectList = () => {
     const data = useStaticQuery(PROJECT_ARCHIVE_QUERY)
 
     return (
-        <ContentWrapper>        
-            <SubHeading>Recent Work</SubHeading>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis magni odit excepturi provident! Velit, laborum iusto, molestiae id explicabo blanditiis voluptatibus quia exercitationem, error enim quo necessitatibus distinctio suscipit ducimus.</p>
+        <ContentWrapper>
+            <Content>
+          <SubHeading>Recent Work</SubHeading>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis magni odit excepturi provident! Velit, laborum iusto, molestiae id explicabo blanditiis voluptatibus quia exercitationem, error enim quo necessitatibus distinctio suscipit ducimus.</p>
+            </Content>        
+           
             <ProjectGrid>
             { data.allMarkdownRemark.edges.map(edge => (
                 <Link key={edge.node.frontmatter.slug} to={`/projects${edge.node.frontmatter.slug}`}>
         
             <ProjectCard project={edge} />
         </Link>
-               /* <li key={edge.node.frontmatter.slug}>
-                <Link to={`/projects${edge.node.frontmatter.slug}`}>
-                  {edge.node.frontmatter.title}
-                </Link>
-              </li> */
            
             ))}
             </ProjectGrid>

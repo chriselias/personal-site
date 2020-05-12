@@ -3,7 +3,7 @@ slug: '/draftboard-app'
 date: '2019-1-13'
 title: 'The Best Draftboard App'
 color: '#15bed4'
-cover: 'demo1.png'
+secondaryColor: '#FF0'
 images:
     - "../images/demo1.png"
 ---
